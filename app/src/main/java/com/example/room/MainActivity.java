@@ -6,12 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    //    private ListView listView;
     private RecyclerView recyclerView;
-    private ArrayAdapter<PersonneEntity> arrayAdapter;
     private MainViewModel mViewModel;
     private final List<PersonneEntity> personsData = new ArrayList<>();
     private PersonAdapter personAdapter;

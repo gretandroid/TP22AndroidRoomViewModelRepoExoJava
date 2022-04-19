@@ -28,6 +28,9 @@ public interface PersonneDao {
     @Query("SELECT * FROM person ORDER BY date DESC")
     LiveData<List<PersonneEntity>> getAll() ;
 
+    @Query("SELECT * FROM person ORDER BY date DESC")
+    List<PersonneEntity> getAllBlocking() ;
+
     @Query("DELETE FROM person")
     int deleteAll();
 

@@ -13,12 +13,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 import com.example.room.database.PersonneEntity;
 
 import java.util.List;
 
-public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonViewHolder> {
+public class PersonAdapter extends
+        Adapter<PersonAdapter.PersonViewHolder> {
 
     private List<PersonneEntity> persons;
 
@@ -28,7 +30,8 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
 
     @NonNull
     @Override
-    public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
+                                               int viewType) {
         return new PersonViewHolder(from(parent.getContext()).inflate(row_person,
                 parent,
                 false));

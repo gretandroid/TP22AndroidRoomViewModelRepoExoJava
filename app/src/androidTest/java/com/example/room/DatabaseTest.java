@@ -21,7 +21,8 @@ import org.junit.runner.RunWith;
 
 import java.text.ParseException;
 import java.util.List;
-@Ignore
+import java.util.concurrent.Executors;
+
 @RunWith(AndroidJUnit4.class)
 public class DatabaseTest {
     private AppDatabase database;
@@ -32,7 +33,10 @@ public class DatabaseTest {
     @Before
     public void createDb() {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        database = Room.inMemoryDatabaseBuilder(appContext, AppDatabase.class).build();
+        database = Room.inMemoryDatabaseBuilder(appContext,
+                AppDatabase.class)
+                .setTransactionExecutor(Executors.newSingleThreadExecutor())
+                .build();
         dao = database.personneDao();
     }
 
@@ -104,19 +108,19 @@ public class DatabaseTest {
         Assert.assertEquals("nom3", person.getNom());
     }
 
-    @Test
+    @Test @Ignore(value = "async probleme")
     public void getAllLiveData() {
         dao.insertAll(TestData.getAll());
         LiveData<List<PersonneEntity>> allPersonsLiveData = dao.getAll();
         Assert.assertEquals(4, allPersonsLiveData.getValue().size());
     }
 
-//    @Test
-//    public void getAll() {
-//        dao.insertAll(TestData.getAll());
-//        List<PersonneEntity> allPersons = dao.getAllBlocking();
-//        Assert.assertEquals(4, allPersons.size());
-//    }
+    @Test
+    public void getAll() {
+        dao.insertAll(TestData.getAll());
+        List<PersonneEntity> allPersons = dao.getAllBlocking();
+        Assert.assertEquals(4, allPersons.size());
+    }
 
     @Test
     public void deleteAll() {
