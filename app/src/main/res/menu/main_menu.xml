@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/addAllDataItemMenu"
+        android:onClick="onClickAddAllData"
+        android:title="addAllData" />
+    <item
+        android:id="@+id/deleteAllDataItemMenu"
+        android:onClick="onClickDeleteAllData"
+        android:title="deleteAllData" />
+</menu>
