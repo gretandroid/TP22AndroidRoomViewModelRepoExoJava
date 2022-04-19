@@ -1,6 +1,6 @@
 = TP 22 Android Room ViewModel Repo
 
-image::DSC_0004.JPG[Exo,,640,480]
+image::IMG_1866.jpg[Exo,640,480]
 exercice 3 +
 lorsque je click sur l'image view non selectionné de la row, +
 alors l'image view de la row change en selected,
