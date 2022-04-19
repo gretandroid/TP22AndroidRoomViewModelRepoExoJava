@@ -1,1 +1,3 @@
 = TP 22 Android Room ViewModel Repo
+
+image::DSC_0004.JPG[Exo,,640,480]
