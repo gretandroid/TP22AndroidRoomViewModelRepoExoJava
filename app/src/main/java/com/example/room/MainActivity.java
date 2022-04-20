@@ -59,4 +59,9 @@ public class MainActivity extends AppCompatActivity {
     public void onClickDeleteAllData(MenuItem item) {
         mViewModel.deleteAllPersons();
     }
+
+    //récuperer les selected item du RecyclerView
+    public void onClickDeleteSelectedData(MenuItem item) {
+
+    }
 }
