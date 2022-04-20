@@ -6,7 +6,7 @@
     <item
         android:id="@+id/deleteSelectedDataItemMenu"
         android:icon="@android:drawable/ic_menu_delete"
-        android:onClick="onClickDeleteSelectedData"
+
 
 
         android:title="deleteData"
