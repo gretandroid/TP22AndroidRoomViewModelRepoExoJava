@@ -3,9 +3,11 @@ package com.example.room;
 import static com.example.room.R.id.rcView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -19,7 +21,8 @@ import com.example.room.viewmodel.MainViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+implements PersonAdapter.PersonAdapterImageClickEventListener {
     private RecyclerView recyclerView;
     private MainViewModel mViewModel;
     private final List<PersonneEntity> personsData = new ArrayList<>();
@@ -36,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
                     personsData.clear();
                     personsData.addAll(persons);
                     if (personAdapter == null) {
-                        personAdapter = new PersonAdapter(personsData);
+                        personAdapter = new PersonAdapter(personsData,
+                                this);
                         recyclerView = findViewById(rcView);
                         recyclerView.setAdapter(personAdapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -60,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         mViewModel.deleteAllPersons();
     }
 
-    //récuperer les selected item du RecyclerView
-    public void onClickDeleteSelectedData(MenuItem item) {
+    @Override
+    public void onImageClickEventListener(View view, PersonneEntity person) {
 
     }
 }
